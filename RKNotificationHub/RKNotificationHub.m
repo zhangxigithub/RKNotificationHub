@@ -198,7 +198,13 @@ static CGFloat const kBumpTimeSeconds2 = 0.1;
 - (void)setCount:(NSUInteger)newCount
 {
     _count = newCount;
-    countLabel.text = [NSString stringWithFormat:@"%@", @(self.count)];
+    if (newCount > 99)
+    {
+        countLabel.text = [NSString stringWithFormat:@"%@", @(self.count)];
+    }else
+    {
+        countLabel.text = [NSString stringWithFormat:@"99+"];
+    }
     [self checkZero];
     [self expandToFitLargerDigits];
 }
